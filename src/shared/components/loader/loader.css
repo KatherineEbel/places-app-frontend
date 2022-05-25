@@ -1,0 +1,3 @@
+.loader .btn.loading:before {
+    @apply h-10 w-10 border-8;
+}
