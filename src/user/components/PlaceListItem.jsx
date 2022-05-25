@@ -26,11 +26,13 @@ export default function PlaceListItem({place, onDelete}) {
     onDelete(place.id)
   }
 
+  const baseURL = process.env.REACT_APP_BASE_URL;
+
   return (
     <>
       <li className="card bg-base-100 shadow-xl">
         <figure className="px-10 pt-10">
-          <img src={`http://localhost:5001/${place.image}`} alt="Shoes" className="rounded-xl"/>
+          <img src={`${baseURL}/${place.image}`} alt="Shoes" className="rounded-xl"/>
         </figure>
         <div className="card-body items-center text-center">
           <h2 className="card-title">{place.title}</h2>
