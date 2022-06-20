@@ -2,20 +2,29 @@ import {Link, NavLink} from "react-router-dom";
 import {useAuth} from "../../context/auth";
 import { ReactComponent as UserCircle} from '../../../assets/circle-user.svg'
 
-export default function NavLinks() {
+export default function NavLinks({drawerToggleRef}) {
   const { user, logout } = useAuth()
+  const closeDrawer = () => {
+    drawerToggleRef.current.checked = false
+    console.log('checked', drawerToggleRef.current.checked)
+  }
+
   return (
     <>
       <li>
-        <NavLink to='/'>All Users</NavLink>
+        <NavLink to='/' onClick={closeDrawer}>All Users</NavLink>
       </li>
       {user &&
         <>
           <li>
-            <NavLink to={`/${user.id}/places`}>My Places</NavLink>
+            <NavLink to={`/${user.id}/places`}
+                     onClick={closeDrawer}
+            >My Places</NavLink>
           </li>
           <li>
-            <NavLink to='/places/new'>Add Place</NavLink>
+            <NavLink to='/places/new'
+                     onClick={closeDrawer}
+            >Add Place</NavLink>
           </li>
         </>
       }
@@ -33,7 +42,7 @@ export default function NavLinks() {
                 </li>
               </ul>
             </div>) : (
-          <NavLink to='/auth'>Login</NavLink>
+          <NavLink to='/auth' onClick={closeDrawer}>Login</NavLink>
         )}
       </li>
     </>

@@ -30,21 +30,21 @@ export default function PlaceListItem({place, onDelete}) {
 
   return (
     <>
-      <li className="card bg-base-100 shadow-xl">
+      <li className="card bg-base-100 w-80 shadow-xl">
         <figure className="px-10 pt-10">
           <img src={`${baseURL}/${place.image}`} alt="Shoes" className="rounded-xl"/>
         </figure>
-        <div className="card-body items-center text-center">
+        <div className="card-body items-center text-center shadow-lg">
           <h2 className="card-title">{place.title}</h2>
           <h3 className='text-lg font-medium'>{place.address}</h3>
           <p>{place.description}</p>
 
-          <div className="card-actions">
-            <a className="btn btn-primary" href="#modal-map">View on map</a>
+          <div className="flex items-center">
+            <a className="btn btn-link btn-primary" href="#modal-map">View on map</a>
             { user && user.id === place.creator && (
               <>
-                <Link className="btn btn-secondary" to={`/places/${place.id}`}>Edit</Link>
-                <a className={`btn btn-error ${processing ? 'loading' : ''}`} href="#modal-confirm">Delete</a>
+                <Link className="btn btn-link btn-secondary" to={`/places/${place.id}`}>Edit</Link>
+                <a className={`btn btn-link btn-error ${processing ? 'loading' : ''}`} href="#modal-confirm">Delete</a>
               </>
             )}
           </div>

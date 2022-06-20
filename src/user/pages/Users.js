@@ -17,7 +17,7 @@ export default function Users() {
   }, [sendRequest])
 
   return (
-    <main className="p-4 grid place-items-center min-h-screen">
+    <main className="p-8 grid place-items-center">
       {users ? (
         <UsersList users={users} />
       ) : (

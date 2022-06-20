@@ -22,7 +22,7 @@ export default function UserPlaces() {
   }, [sendRequest, userId])
 
   return (
-    <main className='grid place-items-center min-h-screen'>
+    <main className='grid place-items-center'>
       { userPlaces ? (
         <PlaceList places={userPlaces} onDelete={handleDelete}/>
       ) : (

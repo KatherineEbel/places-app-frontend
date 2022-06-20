@@ -70,8 +70,8 @@ export default function UpdatePlace() {
   )
 
   return (
-    <main className='grid place-items-center py-8'>
-      <div className='card card-bordered bg-base-300 shadow-xl w-96'>
+    <main className='grid place-items-center mt-8'>
+      <div className='card card-bordered bg-base-300 shadow-xl w-80'>
         <div className='card-body place-items-center'>
           <h1 className='card-title'>Update Place</h1>
           <form id='update-place-form' className='w-full' onSubmit={updatePlace}>
@@ -86,10 +86,13 @@ export default function UpdatePlace() {
                    valid={inputs.description.valid}
             />
           </form>
-          <div className='card-actions self-end'>
+          <div className='card-actions'>
+            <button className='btn btn-link btn-secondary'
+                    onClick={() => navigate(-1)}
+            >Cancel</button>
             <button
               form='update-place-form'
-              className={`btn btn-block btn-primary ${!valid ? "btn-disabled" : ""} ${processing ? 'loading' : ''}`}
+              className={`btn btn-primary ${!valid ? "btn-disabled" : ""} ${processing ? 'loading' : ''}`}
               type="submit"
               disabled={!valid}
             >

@@ -5,7 +5,7 @@ export default function PlaceList ({ places, onDelete}) {
   return (
     <>
       { !places || !places.length ? (
-        <div className='mx-auto'>
+        <div >
           <div className="alert alert-info shadow-lg">
             <div>
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
@@ -19,7 +19,7 @@ export default function PlaceList ({ places, onDelete}) {
           </div>
         </div>
       ) : (
-        <div className='grid md:grid-cols-2 p-4'>
+        <div className='grid md:grid-cols-2'>
           {places.map(place => <PlaceListItem key={place.id} place={place} onDelete={onDelete}/>)}
         </div>
       )}
